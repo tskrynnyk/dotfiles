@@ -4,3 +4,6 @@
 # do not bell on tab-completion
 set prefer-visible-bell
 
+# reduce tab completion key presses and show suggestions
+set show-all-if-ambiguous on
+
