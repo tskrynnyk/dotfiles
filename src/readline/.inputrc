@@ -1,0 +1,6 @@
+# ------------------------------------------------------------------------------
+# ~/.inputrc
+
+# do not bell on tab-completion
+set prefer-visible-bell
+
