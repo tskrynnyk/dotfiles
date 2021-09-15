@@ -17,9 +17,8 @@ install: all
 	install -m 750 -d $(PREFIX)
 
 clean:
-	$(pwd)
-	echo rm -rf ${BUILD_DIR}
+	rm -rf ${BUILD_DIR}
 
 dstclean: clean
-	echo rm -rf ${PREFIX}
+	rm -rf ${PREFIX}
 
