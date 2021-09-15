@@ -1,4 +1,4 @@
-PREFIX    ?= ~/.dotfiles
+PREFIX    ?= $(shell pwd)/dotfiles
 BUILD_DIR  = ./build
 SRC_DIR    = ./src
 
