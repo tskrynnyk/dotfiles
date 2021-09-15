@@ -1,4 +1,4 @@
-PREFIX    ?= ./dotfiles
+PREFIX    ?= ~/.dotfiles
 BUILD_DIR  = ./build
 SRC_DIR    = ./src
 
@@ -15,10 +15,14 @@ $(BUILDS):
 
 install: all
 	install -m 750 -d $(PREFIX)
-
+	@cd $(BUILD_DIR) && \
+	for f in $(SRCS); do \
+		install -m 640 -D $$f $(PREFIX)/$$f; \
+	done
+	
 clean:
-	rm -rf ${BUILD_DIR}
+	rm -rf $(BUILD_DIR)
 
 dstclean: clean
-	rm -rf ${PREFIX}
+	rm -rf $(PREFIX)
 
