@@ -14,10 +14,10 @@ $(BUILD_DIR)/%: $(SRC_DIR)/%
 	sed '/^[[:blank:]]*\(#.*\)\?$$/d' $< >$@
 
 install: all
-	install -m 750 -d $(PREFIX)
+	@install -v -m 750 -d $(PREFIX)
 	@cd $(BUILD_DIR) && \
 	for f in $(SRCS); do \
-		install -m 640 -D $$f $(PREFIX)/$$f; \
+		install -v -m 640 -D $$f $(PREFIX)/$$f; \
 	done
 	
 clean:
