@@ -9,9 +9,9 @@ BUILDS    := $(SRCS:%=$(BUILD_DIR)/%)
 
 all: $(BUILDS)
 
-$(BUILDS): 
-	mkdir -p $(dir $@)
-	sed '/^[[:blank:]]*\(#.*\)\?$$/d' $(subst $(BUILD_DIR),$(SRC_DIR),./$@) >$@
+$(BUILD_DIR)/%: $(SRC_DIR)/%
+	@mkdir -v -p $(dir $@)
+	sed '/^[[:blank:]]*\(#.*\)\?$$/d' $< >$@
 
 install: all
 	install -m 750 -d $(PREFIX)
