@@ -20,6 +20,8 @@ export PROMPT_COMMAND="history -a"
 
 # ------------------------------------------------------------------------------
 
+PS1='[\u@\h \W]\$ '
+
 [ -n "$LF_LEVEL" ] && PS1="\e[0;41mlf:${LF_LEVEL}\e[0m:"${PS1}
 
 export PS1
