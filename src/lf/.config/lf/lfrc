@@ -1,0 +1,39 @@
+# ------------------------------------------------------------------------------
+# ~/.config/lf/lfrc
+
+set shell bash
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set number
+set relativenumber
+set tabstop 4
+set ratios 2:3:4
+set timefmt "Mon, 02 Jan 2006 15:04:05 MST"
+
+# ------------------------------------------------------------------------------
+
+map w $$SHELL
+map <enter> push $<space>
+
+map <delete> delete
+
+map gc cd ~/.config
+map gl cd ~/.local
+map ge cd /etc
+map gs cd /etc/sv
+map gu cd /usr
+map gv cd /var
+map go cd /var/log
+
+# ------------------------------------------------------------------------------
+
+cmd delete ${{
+    set -f
+    printf "\nDeleting:\n"
+    printf "$fx\n"
+    read -n1 -p 'Delete? [y/N]: ' del
+    [ "$del" = "y" ] && rm -rf $fx
+    printf "\n"
+}}
+
