@@ -1,0 +1,10 @@
+! ------------------------------------------------------------------------------
+! ~/.Xresources.d/xterm
+
+*xterm*locale: true
+*xterm*utf8: true
+*xterm*utf8Title: true
+*xterm*termName: xterm-256color
+
+
+! vim:ft=xdefaults:

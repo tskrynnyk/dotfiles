@@ -1,0 +1,9 @@
+! ------------------------------------------------------------------------------
+! ~/.Xresources
+!
+! After editing .Xresources it may be reloaded with:
+! xrdb -load ~/.Xresources
+
+#include ".Xresources.d/xterm"
+
+
