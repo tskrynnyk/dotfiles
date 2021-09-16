@@ -6,11 +6,17 @@
 
 # ------------------------------------------------------------------------------
 
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# append to the history file, don't overwrite it
 shopt -s histappend
 
 # ------------------------------------------------------------------------------
 
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
 export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=-1
 export HISTFILESIZE=-1
