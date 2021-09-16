@@ -5,17 +5,20 @@ syntax on
 
 " ------------------------------------------------------------------------------
 
-set number
+set number              " Show line numbers
 set numberwidth=4
 set relativenumber
 
 " ------------------------------------------------------------------------------
 
-set smarttab
-set expandtab
+set expandtab           " Use spaces instead of tabs
+set autoindent          " Auto-indent new lines
+set shiftwidth=4        " Number of auto-indent spaces
+set smartindent         " Enable smart-indent
+set smarttab            " Enable smart-tabs
+set softtabstop=4       " Number of spaces per Tab
+
 set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 
 " ------------------------------------------------------------------------------
 
@@ -35,7 +38,7 @@ set modelines=2
 
 " ------------------------------------------------------------------------------
 
-set visualbell
+set visualbell          " Use visual bell (no beeping)
 
 " ------------------------------------------------------------------------------
 
