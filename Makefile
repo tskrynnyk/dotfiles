@@ -12,6 +12,7 @@ all: $(BUILDS)
 $(BUILD_DIR)/%: $(SRC_DIR)/%
 	@mkdir -v -p $(dir $@)
 	sed '/^[[:blank:]]*\(#.*\)\?$$/d' $< >$@
+	if test "$(findstring vimrc, $@)"; then sed -n 's/^\([^"]\+\).*$$/\1/p' $< >$@; fi
 
 install: all
 	@install -v -m 750 -d $(PREFIX)
