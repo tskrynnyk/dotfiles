@@ -11,8 +11,12 @@ all: $(BUILDS)
 
 $(BUILD_DIR)/%: $(SRC_DIR)/%
 	@mkdir -v -p $(dir $@)
-	sed '/^[[:blank:]]*\(#.*\)\?$$/d' $< >$@
-	if test "$(findstring vimrc, $@)"; then sed -n 's/^\([^"]\+\).*$$/\1/p' $< >$@; fi
+	if test "$(findstring vimrc, $@)"; then \
+		perl -ne 'while(<>){s/^(".*|\s*)$$//s;s/\s*".*$$/\n/s;print}' <$< >$@; \
+	elif test "$(findstring Xresources, $@)"; then \
+		perl -ne 'while(<>){s/^(!.*|\s*)$$//s;s/\s*!.*$$/\n/s;print}' <$< >$@; \
+	else \
+		sed '/^[[:blank:]]*\(#.*\)\?$$/d' $< >$@; fi
 
 install: all
 	@install -v -m 750 -d $(PREFIX)
