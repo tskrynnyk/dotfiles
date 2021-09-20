@@ -24,9 +24,8 @@ config.mk: config.def.mk
 
 install: all
 	@install -v -m 750 -d $(PREFIX)
-	@cd $(BUILD_DIR) && \
 	for f in $(SRCS); do \
-		install -v -m 640 -D $$f $(PREFIX)/$$f; \
+		install -v -m 640 -D $(BUILD_DIR)/$$f $(PREFIX)/$$f; \
 	done
 	
 clean:
