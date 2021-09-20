@@ -1,4 +1,5 @@
-PREFIX    ?= $(shell pwd)/dotfiles
+include config.mk
+
 BUILD_DIR  = ./build
 SRC_DIR    = ./src
 
@@ -7,7 +8,7 @@ BUILDS    := $(SRCS:%=$(BUILD_DIR)/%)
 
 .PHONY: all install clean dstclean
 
-all: $(BUILDS)
+all: $(BUILDS) config.mk
 
 $(BUILD_DIR)/%: $(SRC_DIR)/%
 	@mkdir -v -p $(dir $@)
@@ -17,6 +18,9 @@ $(BUILD_DIR)/%: $(SRC_DIR)/%
 		perl -ne 'while(<>){s/^(!.*|\s*)$$//s;s/\s*!.*$$/\n/s;print}' <$< >$@; \
 	else \
 		sed '/^[[:blank:]]*\(#.*\)\?$$/d' $< >$@; fi
+
+config.mk: config.def.mk
+	cp $< $@
 
 install: all
 	@install -v -m 750 -d $(PREFIX)
