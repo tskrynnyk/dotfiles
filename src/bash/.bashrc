@@ -25,6 +25,18 @@ export HISTTIMEFORMAT="%F %T "
 export PROMPT_COMMAND="history -a"
 
 # ------------------------------------------------------------------------------
+# Editor
+
+export EDITOR=vim
+export VISUAL=vim
+
+# ------------------------------------------------------------------------------
+# Pager
+
+export PAGER=less
+export MANPAGER=less
+
+# ------------------------------------------------------------------------------
 # Aliases
 
 alias egrep='egrep --color=auto'
