@@ -24,9 +24,10 @@ config.mk: config.def.mk
 	cp $< $@
 
 install: all
-	@install -v -m 750 -d $(PREFIX)
+	@install -v -d -m 750 $(PREFIX)
 	@for f in $(SRCS); do \
-		install -v -m 640 -D $(BUILD_DIR)/$$f $(PREFIX)/$$f; \
+		mkdir -v -p $$(dirname $(PREFIX)/$$f); \
+		install -v -m 640 $(BUILD_DIR)/$$f $(PREFIX)/$$f; \
 	done
 	
 clean:
