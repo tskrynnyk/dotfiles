@@ -6,5 +6,7 @@
 *xterm*utf8Title: true
 *xterm*termName: xterm-256color
 
+*xterm*background: black
+*xterm*foreground: lightgrey
 
 ! vim:ft=xdefaults:
