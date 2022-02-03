@@ -17,7 +17,7 @@ $(BUILD_DIR)/%: $(SRC_DIR)/%
 	elif test "$(findstring Xresources, $@)"; then \
 		perl -ne 'while(<>){s/^\s*(!.*)?$$//s;s/^(.*)!.*$$/$$1\n/s;print}' <$< >$@; \
 	else \
-		perl -ne 'while(<>){s/^\s*(#.*)?$$//s;s/^(.*)#.*$$/$$1\n/s;print}' <$< >$@; \
+		perl -ne 'while(<>){s/^\s*(#.*)?$$//s;s/^(.*)#\s+.*$$/$$1\n/s;print}' <$< >$@; \
 	fi
 
 config.mk: config.def.mk
