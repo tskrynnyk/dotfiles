@@ -9,6 +9,32 @@
 *xterm*background: black
 *xterm*foreground: lightgrey
 
+*xterm*pointerColor: yellow
+*xterm*pointerColorBackground: black
+
+*xterm*cursorColor: green
+*xterm*cursorBlink: true
+
+*xterm*renderFont: true
+*xterm*faceName: xft:BitstreamVeraSansMono
+
+! Default:
+*xterm*faceSize:   11
+! Unreadable:
+*xterm*faceSize1:   9
+! Tiny:
+*xterm*faceSize2:  13
+! Small:
+*xterm*faceSize3:  18
+! Medium:
+*xterm*faceSize4:  22
+! Large:
+*xterm*faceSize5:  26
+! Huge:
+*xterm*faceSize6:  32
+
+*xterm*SaveLines: 5000
+
 *xterm*selectToClipboard: true
 
 ! double-click to select whole URLs
