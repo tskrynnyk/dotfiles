@@ -1,5 +1,8 @@
 ! ------------------------------------------------------------------------------
 ! ~/.Xresources.d/xterm
+!
+! ~/.xinitrc:
+!   [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
 *xterm*locale: true
 *xterm*utf8: true
@@ -42,6 +45,10 @@
 
 *xterm.vt100.translations: #override \n\
    ~Shift Ctrl <Key> Insert: insert-selection(PRIMARY) \n\
-    Shift Ctrl <Key> Insert: insert-selection(SECONDARY)
+    Shift Ctrl <Key> Insert: insert-selection(SECONDARY) \n\
+    Ctrl <Key> KP_Add: larger-vt-font() \n\
+    Ctrl <Key> KP_Subtract: smaller-vt-font() \n\
+    Ctrl <Key> KP_0: set-vt-font(d) \n\
+    Ctrl <Key> Home: set-reverse-video(toggle)
 
 ! vim:ft=xdefaults:
