@@ -13,11 +13,11 @@ all: $(BUILDS) config.mk
 $(BUILD_DIR)/%: $(SRC_DIR)/%
 	@mkdir -v -p $(dir $@)
 	if test "$(findstring vim, $(@D))"; then \
-		perl -ne 'while(<>){s/^\s*(".*)?$$//s;s/^(.*)".*$$/$$1\n/s;print}' <$< >$@; \
+		perl -pe 's/^\s*(".*)?$$//s;s/^(.*)".*$$/$$1\n/s' <$< >$@; \
 	elif test "$(findstring Xresources, $@)"; then \
-		perl -ne 'while(<>){s/^\s*(!.*)?$$//s;s/^(.*)!.*$$/$$1\n/s;print}' <$< >$@; \
+		perl -pe 's/^\s*(!.*)?$$//s;s/^(.*)!.*$$/$$1\n/s' <$< >$@; \
 	else \
-		perl -ne 'while(<>){s/^\s*(#.*)?$$//s;s/^(.*)#\s+.*$$/$$1\n/s;print}' <$< >$@; \
+		perl -pe 's/^\s*(#.*)?$$//s;s/^(.*)#\s+.*$$/$$1\n/s' <$< >$@; \
 	fi
 
 config.mk: config.def.mk
