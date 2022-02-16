@@ -83,11 +83,15 @@ py-server() {
   python3 -m http.server $port
 }
 
+__lf_ps1() {
+    if [ -n "$LF_LEVEL" ]; then
+        printf ':LF%02d' ${LF_LEVEL}
+    fi
+}
+
 # ------------------------------------------------------------------------------
 
-PS1='[\u@\h \W]\$ '
-
-[ -n "$LF_LEVEL" ] && PS1="\e[0;41mlf:${LF_LEVEL}\e[0m:"${PS1}
+PS1="[\u@\h \w]\$(__lf_ps1)\$ "
 
 export PS1
 
