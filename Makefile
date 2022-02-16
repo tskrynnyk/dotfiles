@@ -36,3 +36,8 @@ clean:
 dstclean: clean
 	rm -rf $(PREFIX)
 
+test:
+	for f in $(SRCS); do \
+		echo diff -y --color $(SRC_DIR)/$$f $(BUILD_DIR)/$$f; \
+	done
+
