@@ -17,6 +17,8 @@ set timefmt "Mon, 02 Jan 2006 15:04:05 MST"
 map w $$SHELL
 map <enter> push $<space>
 
+map <c-s> :source ~/.config/lf/lfrc
+
 map <delete> delete
 
 map gc cd ~/.config
