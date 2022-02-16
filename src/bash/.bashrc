@@ -85,7 +85,7 @@ py-server() {
 
 __lf_ps1() {
     if [ -n "$LF_LEVEL" ]; then
-        printf ':LF%02d' ${LF_LEVEL}
+        printf ':LF%01d' ${LF_LEVEL}
     fi
 }
 
