@@ -37,8 +37,8 @@ cmd _delete ${{
     set -f
     printf "\nDeleting:\n"
     printf "$fx\n"
-    read -n1 -p 'Delete? [y/N]: ' del
-    [ "$del" = "y" ] && rm -rf $fx
+    read -n1 -p 'Continue? [y/N]: ' ans
+    [ "$ans" = "y" ] && rm -rf $fx
     printf "\n"
 }}
 
@@ -46,7 +46,7 @@ cmd _delete ${{
 
 cmd _archive ${{
     set -f
-    printf "Archiving: $fx\n"
+    printf "Archiving: $f\n"
     read -n1 -p 'Continue? [y/N]: ' ans
     [ "$ans" = "y" ] && tar -cJvf "$f".tar.xz "$f"
 }}
