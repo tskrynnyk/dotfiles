@@ -21,6 +21,8 @@ map <c-s> :source ~/.config/lf/lfrc
 
 map <delete> _delete
 
+map a _archive
+
 map gc cd ~/.config
 map gl cd ~/.local
 map ge cd /etc
@@ -38,5 +40,14 @@ cmd _delete ${{
     read -n1 -p 'Delete? [y/N]: ' del
     [ "$del" = "y" ] && rm -rf $fx
     printf "\n"
+}}
+
+# ------------------------------------------------------------------------------
+
+cmd _archive ${{
+    set -f
+    printf "Archiving: $fx\n"
+    read -n1 -p 'Continue? [y/N]: ' ans
+    [ "$ans" = "y" ] && tar -cJvf "$f".tar.xz "$f"
 }}
 
