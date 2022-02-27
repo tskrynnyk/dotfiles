@@ -19,7 +19,7 @@ map <enter> push $<space>
 
 map <c-s> :source ~/.config/lf/lfrc
 
-map <delete> delete
+map <delete> _delete
 
 map gc cd ~/.config
 map gl cd ~/.local
@@ -31,7 +31,7 @@ map go cd /var/log
 
 # ------------------------------------------------------------------------------
 
-cmd delete ${{
+cmd _delete ${{
     set -f
     printf "\nDeleting:\n"
     printf "$fx\n"
