@@ -46,9 +46,16 @@
 *xterm.vt100.translations: #override \n\
    ~Shift Ctrl <Key> Insert: insert-selection(PRIMARY) \n\
     Shift Ctrl <Key> Insert: insert-selection(SECONDARY) \n\
-    Ctrl <Key> KP_Add: larger-vt-font() \n\
-    Ctrl <Key> KP_Subtract: smaller-vt-font() \n\
-    Ctrl <Key> KP_0: set-vt-font(d) \n\
-    Ctrl <Key> Home: set-reverse-video(toggle)
+    Ctrl  <Key> Home: set-reverse-video(toggle)
+    Shift <Key> KP_Add: larger-vt-font() \n\
+    Shift <Key> KP_Subtract: smaller-vt-font() \n\
+    Shift <Key> KP_1: set-vt-font(1) \n\
+    Shift <Key> KP_2: set-vt-font(2) \n\
+    Shift <Key> KP_3: set-vt-font(3) \n\
+    Shift <Key> KP_4: set-vt-font(4) \n\
+    Shift <Key> KP_5: set-vt-font(5) \n\
+    Shift <Key> KP_6: set-vt-font(6) \n\
+    Shift <Key> KP_7: set-vt-font(7) \n\
+    Shift <Key> KP_0: set-vt-font(d)
 
 ! vim:ft=xdefaults:
