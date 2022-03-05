@@ -46,7 +46,7 @@
 *xterm.vt100.translations: #override \n\
    ~Shift Ctrl <Key> Insert: insert-selection(PRIMARY) \n\
     Shift Ctrl <Key> Insert: insert-selection(SECONDARY) \n\
-    Ctrl  <Key> Home: set-reverse-video(toggle)
+    Ctrl  <Key> Home: set-reverse-video(toggle) \n\
     Shift <Key> KP_Add: larger-vt-font() \n\
     Shift <Key> KP_Subtract: smaller-vt-font() \n\
     Shift <Key> KP_1: set-vt-font(1) \n\
