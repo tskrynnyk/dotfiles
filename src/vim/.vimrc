@@ -3,6 +3,8 @@
 
 syntax on
 
+language messages en_US.UTF-8
+
 " ------------------------------------------------------------------------------
 
 set number              " Show line numbers
@@ -43,3 +45,4 @@ set visualbell          " Use visual bell (no beeping)
 " ------------------------------------------------------------------------------
 
 set mousehide
+
