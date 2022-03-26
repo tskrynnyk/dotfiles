@@ -21,7 +21,8 @@ map <c-s> :source ~/.config/lf/lfrc
 
 map <delete> _delete
 
-map a _archive
+map <c-a> _archive
+map <c-c> _copy_to_old
 
 map gc cd ~/.config
 map gl cd ~/.local
@@ -49,5 +50,14 @@ cmd _archive ${{
     printf "Archiving: $f\n"
     read -n1 -p 'Continue? [y/N]: ' ans
     [ "$ans" = "y" ] && tar -cJvf "$f".tar.xz "$f"
+}}
+
+# ------------------------------------------------------------------------------
+
+cmd _copy_to_old ${{
+    set -f
+    printf "Copying `basename $f` to `basename $f`.old\n"
+    read -n1 -p 'Continue? [y/N]: ' ans
+    [ "$ans" = "y" ] && cp -av "$f" "$f".old
 }}
 
