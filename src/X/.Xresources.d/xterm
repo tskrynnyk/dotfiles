@@ -9,6 +9,9 @@
 *xterm*utf8Title: true
 *xterm*termName: xterm-256color
 
+*xterm*visualBell: true
+*xterm*bellIsUrgent: true
+
 *xterm*background: black
 *xterm*foreground: lightgrey
 
