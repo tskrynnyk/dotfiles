@@ -13,7 +13,7 @@
 *xterm*bellIsUrgent: true
 
 *xterm*background: black
-*xterm*foreground: lightgrey
+*xterm*foreground: gray70
 
 *xterm*pointerColor: yellow
 *xterm*pointerColorBackground: black
