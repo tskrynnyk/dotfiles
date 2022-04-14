@@ -93,5 +93,12 @@ __lf_ps1() {
 
 PS1="\u@\h:\w\$(__lf_ps1)\\$ "
 
+# ------------------------------------------------------------------------------
+# Git status
+# https://github.com/git/git/tree/master/contrib/completion
+
+#source ~/.git-prompt.sh
+#PS1="\u@\h:\w\$(__lf_ps1)\$(__git_ps1 \" (%s)\")\\$ "
+
 export PS1
 
