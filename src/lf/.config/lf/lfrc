@@ -56,8 +56,10 @@ cmd _archive ${{
 
 cmd _copy_to_old ${{
     set -f
-    printf "Copying `basename $f` to `basename $f`.old\n"
+    timestamp=$(date '+%Y%m%d%H%M%S')
+    printf "Copying `basename $f` to `basename $f`.${timestamp}.old\n"
     read -n1 -p 'Continue? [y/N]: ' ans
-    [ "$ans" = "y" ] && cp -av "$f" "$f".old
+    [ "$ans" = "y" ] && cp -av "$f" "$f".${timestamp}.old
 }}
+
 
