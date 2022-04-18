@@ -6,7 +6,7 @@ default rule /sudo:/            --> color206 line
 default rule /\b[0-9]{1,3}.(\.[0-9]{1,3}){3}\b/     --> color255 match
 #default rule /\b[0-9]{3,}\b/                        --> color255 match
 default rule /\b[0-9]+\b/                           --> color255 match
-default rule /\b[0-9a-f]+\b/                           --> color255 match
+default rule /\b[0-9a-f]{2,}+\b/                    --> color255 match
 
 default rule /warn|debug|not allowed|[Ss]topping/   --> color214 match
 default rule /aborted|error|failed/     --> color196 match
