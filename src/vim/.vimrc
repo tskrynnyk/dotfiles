@@ -46,3 +46,7 @@ set visualbell          " Use visual bell (no beeping)
 
 set mousehide
 
+" ------------------------------------------------------------------------------
+
+colorscheme desert
+
