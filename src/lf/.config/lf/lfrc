@@ -59,7 +59,7 @@ cmd _copy_to_old ${{
     timestamp=$(date '+%Y%m%d%H%M%S')
     printf "Copying `basename $f` to `basename $f`.${timestamp}.old\n"
     read -n1 -p 'Continue? [y/N]: ' ans
-    [ "$ans" = "y" ] && cp -av "$f" "$f".${timestamp}.old
+    [ "$ans" = "y" ] && cp -aLv "$f" "$f".${timestamp}.old
 }}
 
 
