@@ -79,8 +79,10 @@ mkcd() {
 }
 
 py-server() {
-  local port="${1:-8001}"
-  python3 -m http.server $port
+  local ip="${1:-0.0.0.0}"
+  local port="${2:-8001}"
+  local dir="${3:-.}"
+  python3 -m http.server $port --bind $ip --directory $dir
 }
 
 __lf_ps1() {
