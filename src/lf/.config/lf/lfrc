@@ -27,6 +27,7 @@ map <c-c> _copy_to_old
 
 map gc cd ~/.config
 map gl cd ~/.local
+map gd cd ~/dev
 map ge cd /etc
 map gs cd /etc/sv
 map gu cd /usr
