@@ -22,6 +22,8 @@ map <c-s> :source ~/.config/lf/lfrc
 
 map <delete> _delete
 
+map P :symlink
+
 map <c-a> _archive
 map <c-c> _copy_to_old
 
@@ -64,4 +66,25 @@ cmd _copy_to_old ${{
     [ "$ans" = "y" ] && cp -aLv "$f" "$f".${timestamp}.old
 }}
 
+# ------------------------------------------------------------------------------
+
+# y (select for copy) and P to paste soft-link
+# d (select for cut) and P to paste hard-link
+cmd symlink %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit 0
+    fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
 
