@@ -36,6 +36,9 @@ map gu cd /usr
 map gv cd /var
 map go cd /var/log
 
+map x $$f
+map X !$f
+
 # ------------------------------------------------------------------------------
 
 cmd _delete ${{
