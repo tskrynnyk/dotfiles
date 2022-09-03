@@ -26,6 +26,7 @@ map P :symlink
 
 map <c-a> _archive
 map <c-c> _copy_to_old
+map <c-u> _unpack
 
 map gc cd ~/.config
 map gl cd ~/.local
@@ -54,9 +55,14 @@ cmd _delete ${{
 
 cmd _archive ${{
     set -f
+    command -v atool >/dev/null || { echo "atool command not found."; exit 1; }
     printf "Archiving: $f\n"
     read -n1 -p 'Continue? [y/N]: ' ans
-    [ "$ans" = "y" ] && tar -cJvf "$f".tar.xz "$f"
+    if [ "$ans" = "y" ]; then
+        printf "\n"
+        ff=$(basename "$f")
+        apack "$ff".tar.xz "$ff"
+    fi
 }}
 
 # ------------------------------------------------------------------------------
@@ -67,6 +73,29 @@ cmd _copy_to_old ${{
     printf "Copying `basename $f` to `basename $f`.${timestamp}.old\n"
     read -n1 -p 'Continue? [y/N]: ' ans
     [ "$ans" = "y" ] && cp -aLv "$f" "$f".${timestamp}.old
+}}
+
+# ------------------------------------------------------------------------------
+
+cmd _unpack ${{
+    set -f
+    command -v atool >/dev/null || { echo "atool command not found."; exit 1; }
+    DELETE_ALL=0
+    for f in $fx; do
+        #printf "Unpack $f ... "
+        aunpack $f
+        if [ "$?" ]; then
+            if [ "$DELETE_ALL" -eq 1 ]; then
+                #printf "OK\n"
+                printf "\nProcessing... " && rm -rf $f && printf "Done\n"
+            else
+                read -n1 -p 'Delete sources? [y/Y/N]: ' re
+                [ "$re" = "Y" ] && DELETE_ALL=1 && re=y
+                [ "$re" = "y" ] && printf "\nProcessing... " && rm -rf $f && printf "Done\n"
+            fi
+            printf "\n"
+        fi
+    done
 }}
 
 # ------------------------------------------------------------------------------
