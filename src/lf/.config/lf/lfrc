@@ -25,8 +25,8 @@ map <delete> _delete
 
 map P :symlink
 
-map <c-a> _archive
 map <c-c> _copy_to_old
+map <c-a> _archive
 map <c-u> _unpack
 
 map gc cd ~/.config
@@ -54,16 +54,24 @@ cmd _delete ${{
 
 # ------------------------------------------------------------------------------
 
-cmd _archive ${{
-    set -f
-    command -v atool >/dev/null || { echo "atool command not found."; exit 1; }
-    printf "Archiving: $f\n"
-    read -n1 -p 'Continue? [y/N]: ' ans
-    if [ "$ans" = "y" ]; then
-        printf "\n"
-        ff=$(basename "$f")
-        apack "$ff".tar.xz "$ff"
+# y (select for copy) and P to paste soft-link
+# d (select for cut) and P to paste hard-link
+cmd symlink %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit 0
     fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
 }}
 
 # ------------------------------------------------------------------------------
@@ -74,6 +82,20 @@ cmd _copy_to_old ${{
     printf "Copying `basename $f` to `basename $f`.${timestamp}.old\n"
     read -n1 -p 'Continue? [y/N]: ' ans
     [ "$ans" = "y" ] && cp -aLv "$f" "$f".${timestamp}.old
+}}
+
+# ------------------------------------------------------------------------------
+
+cmd _archive ${{
+    set -f
+    command -v atool >/dev/null || { echo "atool command not found."; exit 1; }
+    printf "Archiving: $f\n"
+    read -n1 -p 'Continue? [y/N]: ' ans
+    if [ "$ans" = "y" ]; then
+        printf "\n"
+        ff=$(basename "$f")
+        apack "$ff".tar.xz "$ff"
+    fi
 }}
 
 # ------------------------------------------------------------------------------
@@ -97,27 +119,5 @@ cmd _unpack ${{
             printf "\n"
         fi
     done
-}}
-
-# ------------------------------------------------------------------------------
-
-# y (select for copy) and P to paste soft-link
-# d (select for cut) and P to paste hard-link
-cmd symlink %{{
-    set -- $(cat ~/.local/share/lf/files)
-    mode="$1"
-    shift
-    if [ "$#" -lt 1 ]; then
-        lf -remote "send $id echo no files to link"
-        exit 0
-    fi
-    case "$mode" in
-        # symbolically copy mode is indicating a soft link
-        copy) ln -sr -t . -- "$@";;
-        # while a move mode is indicating a hard link
-        move) ln -t . -- "$@";;
-    esac
-    rm ~/.local/share/lf/files
-    lf -remote "send clear"
 }}
 
