@@ -62,11 +62,21 @@ if ! shopt -oq posix; then
 fi
 
 # ------------------------------------------------------------------------------
-# Paths
+# MANPATH
 
 [ -d "$HOME/.local/share/man" ] && MANPATH="$HOME/.local/share/man:$MANPATH"
+
+# ------------------------------------------------------------------------------
+# PATH
+
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
+
+if [ -d "$HOME/.local/share/go" ]; then
+    export GOPATH="$HOME/.local/share/go"
+    export GOBIN=$GOPATH/bin
+    export PATH="$GOBIN:$PATH"
+fi
 
 export PATH=$(echo -n $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
 
