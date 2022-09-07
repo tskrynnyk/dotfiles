@@ -46,8 +46,8 @@ cmd _delete ${{
     set -f
     printf "\nDeleting:\n"
     printf "$fx\n"
-    read -n1 -p 'Continue? [y/N]: ' ans
-    [ "$ans" = "y" ] && rm -rf $fx
+    read -n1 -p 'Continue? [y/N]: ' re
+    [ "$re" = "y" ] && printf "\nProcessing... " && rm -rf $fx && printf "Done\n"
     printf "\n"
 }}
 
