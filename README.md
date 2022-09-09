@@ -103,6 +103,16 @@ or create `config.mk`, e.g.:
 $ echo 'PREFIX = ~/.dotfiles' >config.mk
 ```
 
+### Install
+
+#### Simple
+
+```sh
+$ install -m 644 build/bash/.bashrc ~/
+```
+
+#### `stow`
+
 ## What I use?
 
 
