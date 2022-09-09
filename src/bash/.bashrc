@@ -48,6 +48,9 @@ alias la='ls -lA'
 alias ll='ls -l'
 alias ls='ls --color=auto'
 
+alias path='echo -e ${PATH//:/\\n}'
+alias lspart='lsblk -o name,partlabel,size,fstype,label,mountpoint'
+
 # ------------------------------------------------------------------------------
 # Bash completion
 
