@@ -22,7 +22,6 @@ export HISTSIZE=-1
 export HISTFILESIZE=-1
 export HISTIGNORE="&:exit:pwd"
 export HISTTIMEFORMAT="%F %T "
-export PROMPT_COMMAND="history -a"
 
 # ------------------------------------------------------------------------------
 # Editor
@@ -112,6 +111,10 @@ if [ -d ~/.local/etc/bash.d ]; then
 fi
 
 # ------------------------------------------------------------------------------
+# PROMPT
+
+export PROMPT_COMMAND="history -a"
+export PROMPT_DIRTRIM=1
 
 PS1="\u@\h:\w\$(__lf_ps1)\\$ "
 
