@@ -36,6 +36,11 @@ export PAGER=less
 export MANPAGER=less
 
 # ------------------------------------------------------------------------------
+# CDPATH
+
+export CDPATH='.:~:~/docs:~/dev'
+
+# ------------------------------------------------------------------------------
 # Aliases
 
 alias egrep='egrep --color=auto'
