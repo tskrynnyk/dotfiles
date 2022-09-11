@@ -5,6 +5,12 @@ syntax on
 
 language messages en_US.UTF-8
 
+set background=dark
+
+set shortmess=atI       " a - filmnrwx flags
+                        " t - truncate file names
+                        " I - no intro message when starting vim fileless
+
 " ------------------------------------------------------------------------------
 
 set number              " Show line numbers
