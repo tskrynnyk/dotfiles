@@ -1,6 +1,7 @@
 metalog rule /( \w+\.\w+:|\[\w+\])/ --> color252 match
 
 metalog rule /\[(fcron|chronyd)/    --> color246 line
+metalog rule /\[smartd/             --> color246 line
 metalog rule /\[sshd/               --> color223 line
 metalog rule /\[xbps-.*/            --> color190 line
 metalog rule /\[su(do)?\]/          --> color226 line
