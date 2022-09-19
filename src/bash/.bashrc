@@ -20,7 +20,7 @@ shopt -s histappend
 export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=-1
 export HISTFILESIZE=-1
-export HISTIGNORE="&:exit:pwd"
+export HISTIGNORE="&:exit:history:pwd"
 export HISTTIMEFORMAT="%F %T "
 
 # ------------------------------------------------------------------------------
