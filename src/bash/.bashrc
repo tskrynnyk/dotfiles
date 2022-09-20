@@ -111,8 +111,8 @@ __lf_ps1() {
 # ------------------------------------------------------------------------------
 # bash.d
 
-if [ -d ~/.local/etc/bash.d ]; then
-    for i in ~/.local/etc/bash.d/*.sh; do . $i; done
+if [ -d ~/.local/share/bash.d ]; then
+    for i in ~/.local/share/bash.d/*.sh; do . $i; done
 fi
 
 # ------------------------------------------------------------------------------
