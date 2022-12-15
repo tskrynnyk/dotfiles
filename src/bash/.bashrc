@@ -69,11 +69,6 @@ if ! shopt -oq posix; then
 fi
 
 # ------------------------------------------------------------------------------
-# MANPATH
-
-export MANPATH=$(manpath)
-
-# ------------------------------------------------------------------------------
 # PATH
 
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
@@ -86,6 +81,12 @@ if [ -d "$HOME/.local/share/go" ]; then
 fi
 
 export PATH=$(echo -n $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
+
+# ------------------------------------------------------------------------------
+# MANPATH
+
+unset MANPATH
+export MANPATH=$(manpath -q)
 
 # ------------------------------------------------------------------------------
 # Functions
