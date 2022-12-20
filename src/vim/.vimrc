@@ -77,7 +77,7 @@ set mousehide
 " ------------------------------------------------------------------------------
 
 set timeoutlen=300      " Mapping timeout
-set ttimeoutlen=50      " Keycode timeout
+set ttimeoutlen=150     " Keycode timeout
 
 set history=500         " Number of command lines to remember
 
