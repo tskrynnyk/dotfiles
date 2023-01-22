@@ -111,19 +111,14 @@ __lf_ps1() {
 }
 
 # ------------------------------------------------------------------------------
-# bash.d
-
-if [ -d ~/.local/share/bash.d ]; then
-    for i in ~/.local/share/bash.d/*.sh; do . $i; done
-fi
-
-# ------------------------------------------------------------------------------
 # PROMPT
 
 export PROMPT_COMMAND="history -a"
 export PROMPT_DIRTRIM=1
 
-PS1="\u@\h:\w\$(__lf_ps1)\\$ "
+PS1='\[\033[40;90m\]\w\[\033[00m\]$(__lf_ps1)'
+
+[ -n "$SSH_CONNECTION" ] && PS1="\h:"${PS1}
 
 # ------------------------------------------------------------------------------
 # Git status
@@ -132,5 +127,13 @@ PS1="\u@\h:\w\$(__lf_ps1)\\$ "
 #source ~/.git-prompt.sh
 #PS1="\u@\h:\w\$(__lf_ps1)\$(__git_ps1 \" (%s)\")\\$ "
 
+# ------------------------------------------------------------------------------
+# bash.d
+
+if [ -d ~/.local/share/bash.d ]; then
+    for i in ~/.local/share/bash.d/*.sh; do . $i; done
+fi
+
+PS1=$PS1'\$ '
 export PS1
 
