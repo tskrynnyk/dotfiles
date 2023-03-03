@@ -81,11 +81,13 @@ cmd _copy_to_old ${{
     printf "Copying `basename $f` to:\n"
     printf "[o] `basename $f`.old (default)\n"
     printf "[t] `basename $f`.${timestamp}.old\n"
+    printf "[d] `basename $f`.dist\n"
     read -n28 -p 'Continue? [y/n/filename]: ' ans
     [ -z "$ans" -o "$ans" = "n" ] && exit 0
     case $ans in
         y|o) cp -aLv "$f" "$f".old ;;
         t) cp -aLv "$f" "$f".${timestamp}.old ;;
+        d) cp -aLv "$f" "$f".dist ;;
         *) cp -aLv "$f" "$ans" ;;
     esac
 }}
