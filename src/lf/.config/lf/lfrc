@@ -12,6 +12,7 @@ set info size:time
 set tabstop 4
 set ratios 2:3:4
 set timefmt "Mon, 02 Jan 2006 15:04:05 MST"
+set cursorpreviewfmt "\033[7m"
 
 # ------------------------------------------------------------------------------
 
