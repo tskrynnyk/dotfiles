@@ -1,0 +1,23 @@
+# ------------------------------------------------------------------------------
+# ~/.config/ctpv/config
+
+set showgpg
+set shell "/usr/bin/bash"
+
+# ------------------------------------------------------------------------------
+
+remove libreoffice
+remove delta
+remove diff_so_fancy
+
+# ------------------------------------------------------------------------------
+
+preview figlet .figlet {{
+    toilet -f future < "$f"
+}}
+
+preview manpage .1 .2 .3 .4 .5 .6 .7 .8 {{
+    groff -k -Tutf8 -mandoc -rLL="${w}n" "${f}" | col -b
+}}
+
+
