@@ -69,18 +69,27 @@ cmd symlink %{{
 
 cmd _copy_to_old ${{
     set -f
+    tabs 2
+    filename=$(basename $f)
     timestamp=$(date '+%Y%m%d%H%M%S')
-    printf "Copying `basename $f` to:\n"
-    printf "[o] `basename $f`.old (default)\n"
-    printf "[t] `basename $f`.${timestamp}.old\n"
-    printf "[d] `basename $f`.dist\n"
-    read -n28 -p 'Continue? [y/n/o/t/d/<filename>]: ' ans
+    randhex=$(openssl rand -hex 3)
+    uuidtx=$(uuidgen -t -x)
+    printf "Copying '%s' to:\n" "$filename"
+    printf "\t[b] %s (default)\n" "$filename.${randhex}.old"
+    printf "\t[t] %s\n" "$filename.${timestamp}.old"
+    printf "\t[u] %s\n" "${uuidtx}.${filename#*.}"
+    printf "\t[o] %s\n" "$filename.old"
+    printf "\t[d] %s\n" "$filename.dist"
+    printf "\n"
+    read -n28 -p 'Continue? [y/b/t/u/o/d/<filename>/N]: ' ans
     [ -z "$ans" -o "$ans" = "n" ] && exit 0
     case $ans in
-        y|o) cp -aLv "$f" "$f".old ;;
-        t) cp -aLv "$f" "$f".${timestamp}.old ;;
-        d) cp -aLv "$f" "$f".dist ;;
-        *) cp -aLvi "$f" "$ans" ;;
+        y|b) cp -aLvi "$f" "$f".${randhex}.old ;;
+        t)   cp -aLvi "$f" "$f".${timestamp}.old ;;
+        u)   cp -aLvi "$f" ${uuidtx}."${f#*.}" ;;
+        o)   cp -aLvn "$f" "$f".old ;;
+        d)   cp -aLvn "$f" "$f".dist ;;
+        *)   cp -aLvi "$f" "$ans" ;;
     esac
 }}
 
