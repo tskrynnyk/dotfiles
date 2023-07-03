@@ -76,7 +76,7 @@ cmd _copy_to ${{
     uuidtx=$(uuidgen -t -x)
     printf "Copying '%s' to:\n" "$filename"
     printf "\t[b]ackup:    %s (default)\n" "$filename.${randhex}.old"
-    printf "\t[t]imestamp: %s\n" "$filename.${timestamp}.old"
+    printf "\t[t]imestamp: %s\n" "$filename.${timestamp}"
     printf "\t[u]uid:      %s\n" "${uuidtx}.${filename#*.}"
     printf "\t[o]ld:       %s\n" "$filename.old"
     printf "\t[d]ist:      %s\n" "$filename.dist"
