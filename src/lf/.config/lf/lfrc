@@ -25,7 +25,7 @@ map <delete> _delete
 
 map P :symlink
 
-map <c-c> _copy_to_old
+map <c-c> _copy_to
 map <c-a> _archive
 map <c-u> _unpack
 
@@ -67,7 +67,7 @@ cmd symlink %{{
 
 # ------------------------------------------------------------------------------
 
-cmd _copy_to_old ${{
+cmd _copy_to ${{
     set -f
     tabs 2
     filename=$(basename $f)
