@@ -97,7 +97,7 @@ cmd _copy_to ${{
 
 cmd _archive ${{
     set -f
-    command -v atool >/dev/null || { echo "atool command not found."; exit 1; }
+    command -v atool >/dev/null || { echo "Error: atool command not found."; exit 1; }
     printf "Archiving: $f\n"
     read -n1 -p 'Continue? [y/N]: ' ans
     if [ "$ans" = "y" ]; then
