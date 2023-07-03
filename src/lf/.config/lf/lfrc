@@ -75,11 +75,11 @@ cmd _copy_to ${{
     randhex=$(openssl rand -hex 3)
     uuidtx=$(uuidgen -t -x)
     printf "Copying '%s' to:\n" "$filename"
-    printf "\t[b] %s (default)\n" "$filename.${randhex}.old"
-    printf "\t[t] %s\n" "$filename.${timestamp}.old"
-    printf "\t[u] %s\n" "${uuidtx}.${filename#*.}"
-    printf "\t[o] %s\n" "$filename.old"
-    printf "\t[d] %s\n" "$filename.dist"
+    printf "\t[b]ackup:    %s (default)\n" "$filename.${randhex}.old"
+    printf "\t[t]imestamp: %s\n" "$filename.${timestamp}.old"
+    printf "\t[u]uid:      %s\n" "${uuidtx}.${filename#*.}"
+    printf "\t[o]ld:       %s\n" "$filename.old"
+    printf "\t[d]ist:      %s\n" "$filename.dist"
     printf "\n"
     read -n28 -p 'Continue? [y/b/t/u/o/d/<filename>/N]: ' ans
     [ -z "$ans" -o "$ans" = "n" ] && exit 0
