@@ -44,7 +44,7 @@ metalog rule /\b(eth|wlan)[0-9]+\b/             --> color123 match
 metalog rule /\b(en|wl|ww)([os][0-9]+|p[0-9]+s[0-9]+|x[0-9a-f]+)\b/ --> color123 match
 
 # Errors
-metalog rule /warn|debug|not (allowed|found)|unreadable/        --> color214 match
+metalog rule /warn(ing)?|debug|not (allowed|found)|unreadable/  --> color214 match
 metalog rule /([Ee]xit|[Ss]topp|[Tt]erminat)(ed|ing)/   --> color214 match
 metalog rule /aborted|error|failed/                     --> color196 match
 
