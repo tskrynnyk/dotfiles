@@ -86,7 +86,7 @@ cmd _copy_to ${{
     case $ans in
         y|b) cp -aLvi "$f" "$f".${randhex}.old ;;
         t)   cp -aLvi "$f" "$f".${timestamp}.old ;;
-        u)   cp -aLvi "$f" ${uuidtx}."${f#*.}" ;;
+        u)   cp -aLvi "$f" ${uuidtx}."${filename#*.}" ;;
         o)   cp -aLvn "$f" "$f".old ;;
         d)   cp -aLvn "$f" "$f".dist ;;
         *)   cp -aLvi "$f" "$ans" ;;
