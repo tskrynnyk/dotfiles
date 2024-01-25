@@ -53,7 +53,6 @@ alias ll='ls -l'
 alias ls='ls --color=auto'
 
 alias path='echo -e ${PATH//:/\\n}'
-alias lspart='lsblk -o name,partlabel,size,fstype,label,mountpoint'
 
 # ------------------------------------------------------------------------------
 # Bash completion
@@ -73,14 +72,9 @@ fi
 
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 
-if [ -d "$HOME/.local/share/go" ]; then
-    export GOPATH="$HOME/.local/share/go"
-    export GOBIN=$GOPATH/bin
-    export PATH="$GOBIN:$PATH"
-fi
-
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
+# clean up
 export PATH=$(echo -n $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
 
 # ------------------------------------------------------------------------------
@@ -91,18 +85,6 @@ export MANPATH=$(manpath -q)
 
 # ------------------------------------------------------------------------------
 # Functions
-
-mkcd() {
-  mkdir -p "$*"
-  cd "$*"
-}
-
-py-server() {
-  local ip="${1:-0.0.0.0}"
-  local port="${2:-8001}"
-  local dir="${3:-.}"
-  python3 -m http.server $port --bind $ip --directory $dir
-}
 
 __lf_ps1() {
     if [ -n "$LF_LEVEL" ]; then
