@@ -14,15 +14,23 @@ $ tree -na ./src
 │   │   └── xterm
 │   └── .xsession
 ├── bash
-│   └── .bashrc
+│   ├── .bashrc
+│   └── .git-prompt.sh
 ├── bspwm
 │   └── .config
 │       └── bspwm
 │           └── bspwmrc
+├── clog
+│   └── .clogrc
+├── ctpv
+│   └── .config
+│       └── ctpv
+│           └── config
 ├── lf
 │   └── .config
 │       └── lf
-│           └── lfrc
+│           ├── lfrc
+│           └── lfrc.local.example
 ├── nftables
 │   └── etc
 │       └── nftables.conf
@@ -37,7 +45,7 @@ $ tree -na ./src
 └── vim
     └── .vimrc
 
-17 directories, 11 files
+22 directories, 15 files
 ```
 
 The files in `src` can be used directly for the initial configuration of the programs. 
