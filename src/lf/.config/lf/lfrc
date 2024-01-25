@@ -133,5 +133,5 @@ cmd _unpack ${{
 
 # ------------------------------------------------------------------------------
 
-:source ~/.config/lf/lfrc.local
+#:source ~/.config/lf/lfrc.local
 
