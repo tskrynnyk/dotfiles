@@ -1,4 +1,4 @@
-include config.mk
+-include config.mk
 
 BUILD_DIR  = ./build
 SRC_DIR    = ./src
