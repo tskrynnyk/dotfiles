@@ -1,30 +1,49 @@
 # ~/.config/lf/lfrc.local
 #
 
+# Use the `dim` attribute instead of underline for the cursor in the preview pane
+set cursorpreviewfmt "\033[7;2m"
+
 # ------------------------------------------------------------------------------
 # root
 
-#map ge cd /etc
-#map gs cd /etc/sv
-#map gu cd /usr
-#map gv cd /var
-#map go cd /var/log
+map ge cd /etc
+map gs cd /etc/sv
+map gu cd /usr
+map gv cd /var
+map go cd /var/log
 
 # ------------------------------------------------------------------------------
 # user
 
-#map gc cd ~/.config
+map gc cd ~/.config
 
-#map gl cd ~/.local
-#map gu cd ~/.local/share
-#map gv cd ~/.local/var
+map gl cd ~/.local
+map gu cd ~/.local/share
+map gv cd ~/.local/var
 
-#map gD $lf -remote "send $id cd $XDG_DOCUMENTS_DIR"
-#map gI $lf -remote "send $id cd $XDG_PICTURES_DIR"
-#map gW $lf -remote "send $id cd $XDG_DOWNLOAD_DIR"
-#map gV $lf -remote "send $id cd $XDG_VIDEOS_DIR"
+map gD $lf -remote "send $id cd $XDG_DOCUMENTS_DIR"
+map gI $lf -remote "send $id cd $XDG_PICTURES_DIR"
+map gW $lf -remote "send $id cd $XDG_DOWNLOAD_DIR"
+map gV $lf -remote "send $id cd $XDG_VIDEOS_DIR"
 
-#map I $lf-preview "$f" | less -RM
+map I $lf-preview "$f" | less -RM
 
-#cmd open $xdg-open $f
+cmd open $xdg-open $f
+
+# ------------------------------------------------------------------------------
+# ctpv
+# https://github.com/NikitaIvanovV/ctpv
+
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+
+# ------------------------------------------------------------------------------
+# 0x0.st
+
+cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
+map S :share
+
 
