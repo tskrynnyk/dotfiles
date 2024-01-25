@@ -41,9 +41,19 @@ set cleaner ctpvclear
 &ctpvquit $id
 
 # ------------------------------------------------------------------------------
-# 0x0.st
+# Share in 0x0.st
 
-cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
+cmd share $curl -F"file=@$fx" https://0x0.st | xsel -bi
 map S :share
 
+# ------------------------------------------------------------------------------
+# Copy path to clipboard
+
+map <c-c> :copy_path_to_clipboard
+
+cmd copy_path_to_clipboard %{{
+    if type xsel > /dev/null 2>&1; then
+        printf '%s' "$f" | xsel -bi
+    fi
+}}
 
