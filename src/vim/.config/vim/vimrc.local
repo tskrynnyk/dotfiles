@@ -1,0 +1,45 @@
+" ------------------------------------------------------------------------------
+" vimrc.local
+
+"if $TERM == "xterm-256color"
+    set t_Co=256
+"endif
+
+let &t_ut=''
+
+" Changes cursor shape in different modes
+let &t_SI = "\e[6 q"
+let &t_SR = "\e[4 q"
+let &t_EI = "\e[2 q"
+
+" ------------------------------------------------------------------------------
+" colorscheme
+
+colorscheme slate
+
+" ------------------------------------------------------------------------------
+" Split
+set splitbelow splitright
+set hidden
+
+" ------------------------------------------------------------------------------
+" cursorline
+
+set cursorline
+
+"au InsertEnter * set nocursorline
+"au InsertLeave * set cursorline
+
+au InsertEnter * hi CursorLine cterm=NONE ctermbg=0
+au InsertLeave * hi CursorLine cterm=NONE ctermbg=233
+
+"set colorcolumn=81
+highlight ColorColumn ctermbg=233
+
+" ------------------------------------------------------------------------------
+
+autocmd BufNewFile,BufRead /tmp/mutt*
+\  setlocal noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist nopaste spell
+
+autocmd BufNewFile,BufRead .info setlocal noexpandtab
+
