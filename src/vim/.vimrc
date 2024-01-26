@@ -123,7 +123,7 @@ colorscheme elflord
 
 " ------------------------------------------------------------------------------
 
-let my_config = $HOME . '/.vim/vimrc.local'
+let my_config = $HOME . '/.config/vim/vimrc.local'
 
 if filereadable(g:my_config)
     exe 'source ' . fnameescape(my_config)
