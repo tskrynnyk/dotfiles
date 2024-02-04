@@ -112,17 +112,20 @@ rsyslog rule /\broot\b/                         --> color196 match
 # Path
 rsyslog rule /\/(etc|usr|var)(\/[[:alnum:]\._-]+)+/     --> color255 match
 
+# Datetime
+rsyslog rule /^[0-9]{4}(-[0-9]{2}){2}T([0-9]{2}(:[0-9]{2}){2})\.[0-9]{6}[\+-]..:../          --> color8 match
+
 # Date
 rsyslog rule /^[0-9]{4}(-[0-9]{2}){2}/          --> color31 match
 
 # Time
-rsyslog rule /T([0-9]{2}(:[0-9]{2}){2}\.[0-9]{6})\+/ --> color252 match
+rsyslog rule /([0-9]{2}(:[0-9]{2}){2})\.[0-9]{6}/ --> color12 match
 
 # Host
 rsyslog rule /rick/                             --> color31 match
 
 # Mark
-rsyslog rule /-- MARK --/                       --> color240 line
+rsyslog rule /-- MARK --/                       --> color8 line
 
 # ------------------------------------------------------------------------------
 # named
