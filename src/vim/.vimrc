@@ -95,7 +95,7 @@ set viminfo=%,<800,'25,/50,:100,h,f0,n~/.vim/cache/.viminfo
 
 let cache_dir = $HOME . '/.cache/vim'
 if !isdirectory(cache_dir)
-    call mkdir(cache_dir)
+    call mkdir(cache_dir, 'p')
 endif
 
 " ------------------------------------------------------------------------------
