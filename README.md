@@ -29,8 +29,23 @@ $ tree -na ./src
 ├── lf
 │   └── .config
 │       └── lf
+│           ├── inc
+│           │   ├── archive-atool.lfrc
+│           │   ├── archive-tar_xz.lfrc
+│           │   ├── copy_path_to_clipboard.lfrc
+│           │   ├── copy_to.lfrc
+│           │   ├── delete.lfrc
+│           │   ├── edit_config.lfrc
+│           │   ├── maps-root.lfrc
+│           │   ├── maps-user-xdg.lfrc
+│           │   ├── maps-user.lfrc
+│           │   ├── preview_with_ctpv.lfrc
+│           │   ├── share_in_0x0_st.lfrc
+│           │   ├── symlink.lfrc
+│           │   ├── unpack.lfrc
+│           │   └── xdg-open.lfrc
 │           ├── lfrc
-│           └── lfrc.local.example
+│           └── lfrc.local
 ├── nftables
 │   └── etc
 │       └── nftables.conf
@@ -43,9 +58,14 @@ $ tree -na ./src
 ├── tmux
 │   └── .tmux.conf
 └── vim
+    ├── .config
+    │   └── vim
+    │       ├── colors
+    │       │   └── tmblack.vim
+    │       └── vimrc.local
     └── .vimrc
 
-22 directories, 15 files
+26 directories, 31 files
 ```
 
 The files in `src` can be used directly for the initial configuration of the programs. 
