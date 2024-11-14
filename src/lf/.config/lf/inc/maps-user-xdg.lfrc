@@ -1,0 +1,9 @@
+# ------------------------------------------------------------------------------
+
+map gD $lf -remote "send $id cd $XDG_DOCUMENTS_DIR"
+map gI $lf -remote "send $id cd $XDG_PICTURES_DIR"
+map gW $lf -remote "send $id cd $XDG_DOWNLOAD_DIR"
+map gV $lf -remote "send $id cd $XDG_VIDEOS_DIR"
+
+
+

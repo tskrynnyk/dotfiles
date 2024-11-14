@@ -1,0 +1,9 @@
+# ------------------------------------------------------------------------------
+
+map ge cd /etc
+map gs cd /etc/sv
+map gu cd /usr
+map gv cd /var
+map go cd /var/log
+
+

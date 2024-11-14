@@ -1,0 +1,9 @@
+# ------------------------------------------------------------------------------
+
+map gc cd ~/.config
+
+map gl cd ~/.local
+map gu cd ~/.local/share
+map gv cd ~/.local/var
+
+map gb cd ~/bin

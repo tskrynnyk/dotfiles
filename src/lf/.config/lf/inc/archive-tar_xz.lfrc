@@ -1,0 +1,15 @@
+# ------------------------------------------------------------------------------
+
+map <c-a> _archive
+
+cmd _archive ${{
+    set -f
+    printf "Archiving: $f\n"
+    read -n1 -p 'Continue? [y/N]: ' ans
+    if [ "$ans" = "y" ]; then
+        printf "\n"
+        ff=$(basename "$f")
+        printf "\nProcessing... " && tar -cJvf "$ff".tar.xz "$ff" && printf "Done\n"
+    fi
+}}
+

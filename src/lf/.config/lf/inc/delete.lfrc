@@ -1,0 +1,14 @@
+# ------------------------------------------------------------------------------
+
+map <delete> _delete
+
+cmd _delete ${{
+    set -f
+    printf "\nDeleting:\n"
+    printf "$fx\n"
+    read -n1 -p 'Continue? [y/N]: ' re
+    [ "$re" = "y" ] && printf "\nProcessing... " && rm -rf $fx && printf "Done\n"
+    printf "\n"
+}}
+
+

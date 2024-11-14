@@ -1,0 +1,25 @@
+# ------------------------------------------------------------------------------
+
+map <c-u> _unpack
+
+cmd _unpack ${{
+    set -f
+    command -v atool >/dev/null || { echo "atool command not found."; exit 1; }
+    DELETE_ALL=0
+    for f in $fx; do
+        #printf "Unpack $f ... "
+        aunpack $f
+        if [ "$?" ]; then
+            if [ "$DELETE_ALL" -eq 1 ]; then
+                #printf "OK\n"
+                printf "\nProcessing... " && rm -rf $f && printf "Done\n"
+            else
+                read -n1 -p 'Delete sources? [y/Y/N]: ' re
+                [ "$re" = "Y" ] && DELETE_ALL=1 && re=y
+                [ "$re" = "y" ] && printf "\nProcessing... " && rm -rf $f && printf "Done\n"
+            fi
+            printf "\n"
+        fi
+    done
+}}
+

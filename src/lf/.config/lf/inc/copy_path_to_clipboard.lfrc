@@ -1,0 +1,10 @@
+# ------------------------------------------------------------------------------
+
+map <c-c> _copy_path_to_clipboard
+
+cmd _copy_path_to_clipboard %{{
+    if type xsel > /dev/null 2>&1; then
+        printf '%s' "$f" | xsel -bi
+    fi
+}}
+
