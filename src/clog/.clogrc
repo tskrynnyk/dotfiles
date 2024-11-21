@@ -21,21 +21,29 @@ default rule /[0-9]{2}(:[0-9]{2}){2}\.[0-9]{3}/ --> color252 match
 # ------------------------------------------------------------------------------
 # metalog
 
-metalog rule /( \w+\.\w+:|\[\w+\])/     --> color252 match
+metalog rule /( \w+\.\w+:|\[\w+\])/ --> color252 match
 
 # services
-metalog rule /\[(fcron|chronyd)/        --> color246 line
+metalog rule /\[(fcron|chronyd)/    --> color246 line
+
 metalog rule /\[smartd/         --> color248 line
+
 metalog rule /\[sshd/           --> color223 line
+
 metalog rule /\[xbps-.*/        --> color190 line
+
 metalog rule /\[su(do)?\]/      --> color226 line
+
 metalog rule /\[dhcp/           --> color30  line
+
 metalog rule /\[postfix/        --> color123 line
 metalog rule /\[postfix.smtp/   --> color122 line
 metalog rule /\[postfix.local/  --> color121 line
 metalog rule /\[postfix.master/ --> color231 line
 metalog rule /\[postfix.anvil/  --> color252 line
+
 metalog rule /\[nginx/          --> color45  line
+
 metalog rule /\[kernel/         --> color33  line
 
 # Numbers
@@ -74,52 +82,61 @@ rsyslog rule / (\w+)\[\d+\]:/     --> color252 match
 
 # services
 rsyslog rule /(fcron|chronyd)\[/  --> color246 line
-rsyslog rule /smartd\[/         --> color248 line
-rsyslog rule /sshd\[/           --> color223 line
-rsyslog rule /xbps-.*\[/        --> color190 line
-rsyslog rule /su(do)?: /        --> color226 line
-rsyslog rule /dhcp\[/           --> color30 line
-rsyslog rule /postfix\[/        --> color123 line
-rsyslog rule /postfix.smtp\[/   --> color122 line
+
+rsyslog rule /smartd\[/           --> color248 line
+
+rsyslog rule /sshd\[/             --> color223 line
+
+rsyslog rule /xbps-.*\[/          --> color190 line
+
+rsyslog rule /su(do)?: /          --> color226 line
+
+rsyslog rule /dhcp\[/             --> color30 line
+
+rsyslog rule /postfix\[/          --> color123 line
+rsyslog rule /postfix.smtp\[/     --> color122 line
 rsyslog rule /postfix.+smtpd\[/   --> color120 line
-rsyslog rule /postfix.local\[/  --> color121 line
-rsyslog rule /postfix.master\[/ --> color231 line
-rsyslog rule /postfix.anvil\[/  --> color250 line
+rsyslog rule /postfix.local\[/    --> color121 line
+rsyslog rule /postfix.master\[/   --> color231 line
+rsyslog rule /postfix.anvil\[/    --> color250 line
+
 rsyslog rule /nginx\[\d/          --> color45 line
+
 rsyslog rule /kernel: \[/         --> color39 line
-rsyslog rule /rsyslogd: \[/         --> color30 line
+
+rsyslog rule /rsyslogd: \[/       --> color30 line
 
 # Numbers
-rsyslog rule /\b[0-9]+\b/                       --> color255 match
-rsyslog rule /\b[0-9a-f]{2,}+\b/                --> color255 match
+rsyslog rule /\b[0-9]+\b/         --> color255 match
+rsyslog rule /\b[0-9a-f]{2,}+\b/  --> color255 match
 
 # IP
-rsyslog rule /[0-9]{1,3}(\.[0-9]{1,3}){3}/      --> color123 match
+rsyslog rule /[0-9]{1,3}(\.[0-9]{1,3}){3}/  --> color123 match
 
 # Interfaces
-rsyslog rule /\b(eth|wlan)[0-9]+\b/             --> color123 match
+rsyslog rule /\b(eth|wlan)[0-9]+\b/                                 --> color123 match
 rsyslog rule /\b(en|wl|ww)([os][0-9]+|p[0-9]+s[0-9]+|x[0-9a-f]+)\b/ --> color123 match
 
 # Errors
-rsyslog rule /\b(warn(ing)?|improper|invalid|debug|not (allowed|found)|unreadable)\b/        --> color214 match
-rsyslog rule /\b(([Ee]xit|[Ss]topp|[Tt]erminat|[Dd]isconnect)(ed|ing)|removed)\b/   --> color214 match
-rsyslog rule /\b((abort|[Ff]ail|[Rr]eject)(ed)?|error)\b/                     --> color196 match
+rsyslog rule /\b(warn(ing)?|improper|invalid|debug|not (allowed|found)|unreadable)\b/   --> color214 match
+rsyslog rule /\b(([Ee]xit|[Ss]topp|[Tt]erminat|[Dd]isconnect)(ed|ing)|removed)\b/       --> color214 match
+rsyslog rule /\b((abort|[Ff]ail|[Rr]eject)(ed)?|error)\b/                               --> color196 match
 
-rsyslog rule /\b((start|complet|succeed)(ed|ing))\b/          --> color34 match
+rsyslog rule /\b((start|complet|succeed)(ed|ing))\b/    --> color34 match
 
-rsyslog rule /\broot\b/                         --> color196 match
+rsyslog rule /\broot\b/                                 --> color196 match
 
 # Path
 rsyslog rule /\/(etc|usr|var)(\/[[:alnum:]\._-]+)+/     --> color255 match
 
 # Datetime
-rsyslog rule /^[0-9]{4}(-[0-9]{2}){2}T([0-9]{2}(:[0-9]{2}){2})\.[0-9]{6}[\+-]..:../          --> color8 match
+rsyslog rule /^[0-9]{4}(-[0-9]{2}){2}T([0-9]{2}(:[0-9]{2}){2})\.[0-9]{6}[\+-]..:../     --> color8 match
 
 # Date
 rsyslog rule /^[0-9]{4}(-[0-9]{2}){2}/          --> color31 match
 
 # Time
-rsyslog rule /([0-9]{2}(:[0-9]{2}){2})\.[0-9]{6}/ --> color12 match
+rsyslog rule /([0-9]{2}(:[0-9]{2}){2})\.[0-9]{6}/   --> color12 match
 
 # Host
 rsyslog rule /rick/                             --> color31 match
@@ -141,7 +158,7 @@ named rule / query: (\w+\.)+\w+ /               --> color255 match
 named rule / ([a-z0-9_-]+\.)+\.pl /             --> color34 match
 
 # Types
-named rule / (A{1,4}|CAA|DNSKEY|MX|NS|S(OA|PF|RV)|TXT) /     --> color223 match
+named rule / (A{1,4}|CAA|DNSKEY|MX|NS|S(OA|PF|RV)|TXT) /    --> color223 match
 
 # Errors
 named rule /aborted|error|failed|denied/        --> color196 match
