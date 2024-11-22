@@ -23,9 +23,10 @@ map I $lf-preview "$f" | less -RM
 #:source ~/.config/lf/inc/copy_to.lfrc
 #:source ~/.config/lf/inc/delete.lfrc
 #:source ~/.config/lf/inc/edit_config.lfrc
+#:source ~/.config/lf/inc/maps.lfrc
 #:source ~/.config/lf/inc/maps-root.lfrc
-#:source ~/.config/lf/inc/maps-user-xdg.lfrc
 #:source ~/.config/lf/inc/maps-user.lfrc
+#:source ~/.config/lf/inc/maps-user-xdg.lfrc
 #:source ~/.config/lf/inc/preview_with_ctpv.lfrc
 #:source ~/.config/lf/inc/share_in_0x0_st.lfrc
 #:source ~/.config/lf/inc/symlink.lfrc
