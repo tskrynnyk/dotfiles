@@ -17,4 +17,4 @@ set cursorpreviewfmt "\033[7m"
 
 # ------------------------------------------------------------------------------
 
-:source ~/.config/lf/inc/lfrc.local
+:source ~/.config/lf/lfrc.local
