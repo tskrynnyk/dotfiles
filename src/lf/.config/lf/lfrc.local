@@ -18,7 +18,7 @@ map I $lf-preview "$f" | less -RM
 # ------------------------------------------------------------------------------
 
 #:source ~/.config/lf/inc/archive-tar_xz.lfrc
-#:source ~/.config/lf/inc/archive-atool.lfrc
+#:source ~/.config/lf/inc/archive_with_atool.lfrc
 #:source ~/.config/lf/inc/copy_path_to_clipboard.lfrc
 #:source ~/.config/lf/inc/copy_to.lfrc
 #:source ~/.config/lf/inc/delete.lfrc
@@ -30,6 +30,6 @@ map I $lf-preview "$f" | less -RM
 #:source ~/.config/lf/inc/preview_with_ctpv.lfrc
 #:source ~/.config/lf/inc/share_in_0x0_st.lfrc
 #:source ~/.config/lf/inc/symlink.lfrc
-#:source ~/.config/lf/inc/unpack.lfrc
+#:source ~/.config/lf/inc/unpack_with_atool.lfrc
 #:source ~/.config/lf/inc/xdg-open.lfrc
 
