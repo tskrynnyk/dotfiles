@@ -21,9 +21,9 @@ map I $lf-preview "$f" | less -RM
 #:source ~/.config/lf/inc/archive_with_atool.lfrc
 #:source ~/.config/lf/inc/copy_path_to_clipboard.lfrc
 #:source ~/.config/lf/inc/copy_to.lfrc
-#:source ~/.config/lf/inc/delete.lfrc
+:source ~/.config/lf/inc/delete.lfrc
 #:source ~/.config/lf/inc/edit_config.lfrc
-#:source ~/.config/lf/inc/maps.lfrc
+:source ~/.config/lf/inc/maps.lfrc
 #:source ~/.config/lf/inc/maps-root.lfrc
 #:source ~/.config/lf/inc/maps-user.lfrc
 #:source ~/.config/lf/inc/maps-user-xdg.lfrc
